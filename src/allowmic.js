@@ -48,19 +48,19 @@ const VoiceNotes = () => {
 
   recognition.onstart = () => {
     setButtonContent(
-      "Cyka! Mic active!"
+      "Mic activation"
     );
   };
 
   recognition.onspeechend = () => {
     setButtonContent(
-      "Say Something i am giving up on you~"
+      "Speak now."
     );
   };
 
   recognition.onerror = event => {
     if (event.error === "no-speech") {
-      setButtonContent("Allow mic?");
+      setButtonContent("Athorize Mic?");
     }
   };
 
@@ -113,7 +113,7 @@ const VoiceNotes = () => {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div>Wait</div>;
   }
 
   return (
@@ -137,7 +137,7 @@ const VoiceNotes = () => {
                   type="button"
                   onClick={e => handleDeleteClick(e, note.date)}
                 >
-                  delete
+                  Delete
                 </button>
               </div>
             );
